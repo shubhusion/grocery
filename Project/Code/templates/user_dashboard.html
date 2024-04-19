@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% block title %}User Dashboard{% endblock %}
+
+{% block main %}
+<style>
+    body {
+        background-image: url("static/Add_Category.jpg");
+        background-size: cover;
+        background-position: center;
+        font-family: "Segoe UI", sans-serif;
+        color: #333;
+    }
+
+    .outer-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-container {
+        margin-bottom: 30px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #1e4d2b;
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #1e4d2b;
+        margin-bottom: 10px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 2px solid #e5e5e5;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #e5e5e5;
+    }
+
+    .table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1f3f5;
+    }
+
+    .product-action i {
+        font-size: 18px;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        color: #1e4d2b;
+    }
+
+    .product-action i:hover {
+        transform: scale(1.2);
+    }
+
+    .footer {
+        position: fixed;
+    }
+
+    .no-products-message {
+        text-align: center;
+        color: #555;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <h1>Grocery Store</h1>
+
+    <div class="outer-container">
+        {% if p %} <!-- Search by Product/Category-->
+        {% for prd in product %}
+        <div class="section-container">
+            <h2>{{ prd.section.name }}</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price Per Unit</th>
+                        <th>Unit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ prd.name }}</td>
+                        <td>{{ prd.price }}</td>
+                        <td>{{ prd.unit }}</td>
+                        <td class="product-action">
+                            <a href="/user/cart/add/{{ prd.id }}">
+                                <i class="fas fa-cart-plus" title="Add to Cart"></i>
+                            </a>
+                            <a class="delprd" href="user/cart/remove/{{ prd.id }}">
+                                <i class="fas fa-trash-alt" title="Remove from Cart"></i>
+                            </a>
+                            <a href="user/cart/incr/{{ prd.id }}">
+                                <i class="fas fa-plus-circle" title="Increment Quantity"></i>
+                            </a>
+                            <a href="user/cart/decr/{{ prd.id }}">
+                                <i class="fas fa-minus-circle" title="Decrement Quantity"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+        {% else %}
+        {% for sect in section %}
+        <div class="section-container">
+            <h2>{{ sect['name'] }}</h2>
+            {% if sect.products %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price Per Unit</th>
+                        <th>Unit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    {% for product in sect.products %}
+                    <tr>
+                        <td>{{ product['name'] }}</td>
+                        <td>{{ product['price'] }}</td>
+                        <td>{{ product['unit'] }}</td>
+                        <td class="product-action">
+                            {% if product.quantity == 0 %}
+                            <span class="text-danger"> Product Out of Stock </span>
+                            {% else %}
+                            <a href="/user/cart/add/{{ product.id }}">
+                                <i class="fas fa-cart-plus" title="Add to Cart"></i>
+                            </a>
+                            <a class="delprd" href="user/cart/remove/{{ product.id }}">
+                                <i class="fas fa-trash-alt" title="Remove from Cart"></i>
+                            </a>
+                            <a href="user/cart/incr/{{ product.id }}">
+                                <i class="fas fa-plus-circle" title="Increment Quantity"></i>
+                            </a>
+                            <a href="user/cart/decr/{{ product.id }}">
+                                <i class="fas fa-minus-circle" title="Decrement Quantity"></i>
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="no-products-message">No Products Available in this section.</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    delbutton = document.getElementsByClassName("delprd");
+    for (button of delbutton) {
+        button.addEventListener("click", deleteProduct);
+    }
+
+    function deleteProduct(e) {
+        e.preventDefault();
+        // Display a confirmation dialog box
+        var result = confirm("Are you sure you want to delete this product?");
+
+        if (result === true) {
+            // Perform the delete operation here 
+            console.log(e.target.parentElement);
+            fetch(e.target.parentElement.href).then(function () { window.location.reload(); });
+        }
+    }
+</script>
+{% endblock %}

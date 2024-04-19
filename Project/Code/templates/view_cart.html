@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Shopping Cart - User{% endblock %}
+
+{% block main %}
+<style>
+    body {
+        background-image: url("/static/flat-lay-vegetables-frame.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        margin: 50px auto;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #f8f9fa;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1f3f5;
+    }
+
+    .continue-shopping {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .checkout-button {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .checkout-button:hover {
+        background-color: #218838;
+    }
+
+    /* Style icons */
+    .fa {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="container">
+    <h1>Shopping Cart</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.unit }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <!-- <a href="{{ url_for('view_sections') }}" class="btn btn-primary continue-shopping">Continue Shopping</a> -->
+    <a href="{{ url_for('checkout') }}" class="checkout-button"><i class="fa fa-check"></i> Checkout</a>
+</div>
+{% endblock %}

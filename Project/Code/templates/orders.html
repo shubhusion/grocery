@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Order details{% endblock %}
+
+{% block main %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        margin: 50px auto;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    .table {
+        margin-bottom: 40px;
+    }
+
+    .table th {
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #f8f9fa;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1f3f5;
+    }
+
+    .btn-go-back {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-go-back:hover {
+        background-color: #0056b3;
+    }
+
+    /* Style icons */
+    .fa {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="order-title">Order Details</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product Details</th>
+                <th>Amount Paid(in Rs)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in orders %}
+            <tr>
+                <td>{{ o.order_id }}</td>
+                <td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price(Rs)</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in o.order_to_product %}
+                            <tr>
+                                <td>{{ p.product.name }}</td>
+                                <td>{{ p.quantity }}</td>
+                                <td>{{ p.product.price }}</td>
+                                <td>{{ p.amount }}</td>
+                            </tr>
+                            {% endfor %}
+                            <!-- Add more rows for other products in this order as needed -->
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    {{ o.total }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/user" class="btn btn-go-back"><i class="fas fa-arrow-left"></i> Continue Shopping </a>
+</div>
+{% endblock %}

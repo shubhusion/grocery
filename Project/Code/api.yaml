@@ -1,0 +1,246 @@
+info:
+  _postman_id: 5ccbbfab-6a6e-436c-a7ce-00d2d7202138
+  name: Appdev
+  schema: 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json'
+  _exporter_id: '22368846'
+item:
+  - name: API_Section
+    item:
+      - name: Section(Create)
+        request:
+          method: POST
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          body:
+            mode: raw
+            raw: "{\r\n\"name\": \"Fresh Vegetables\"\r\n}"
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/section'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - section
+        response: []
+      - name: Section(Read)
+        protocolProfileBehavior:
+          disableBodyPruning: true
+        request:
+          method: GET
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          body:
+            mode: raw
+            raw: ''
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/section'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - section
+        response: []
+      - name: Section(Update)
+        request:
+          method: PUT
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          body:
+            mode: raw
+            raw: "{\r\n\"name\": \"Fresh Vegetable\"\r\n}"
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/section/2'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - section
+              - '2'
+        response: []
+      - name: Section(Delete)
+        request:
+          method: DELETE
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/section/1'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - section
+              - '1'
+        response: []
+  - name: API_Product
+    item:
+      - name: Product(Create)
+        request:
+          method: POST
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          body:
+            mode: raw
+            raw: "{\r\n    \"name\": \"Tomato\",\r\n    \"manufacture_date\": null,\r\n    \"expiry_date\": null,\r\n    \"unit\": \"Dozen\",\r\n    \"price\": 200,\r\n    \"quantity\":100,\r\n    \"section_id\": 2\r\n}"
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/product'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - product
+        response: []
+      - name: Product(Read)
+        request:
+          method: GET
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/product/2'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - product
+              - '2'
+        response: []
+      - name: Product(Update)
+        request:
+          method: PUT
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          body:
+            mode: raw
+            raw: "{\r\n    \"name\": \"Tomatoes\",\r\n    \"manufacture_date\": null,\r\n    \"expiry_date\": null,\r\n    \"unit\": \"Pack\",\r\n    \"price\": 100,\r\n    \"quantity\": 50,\r\n    \"section_id\": 2\r\n}"
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/product/3'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - product
+              - '3'
+        response: []
+      - name: Product(Delete)
+        request:
+          method: DELETE
+          header:
+            - key: Content-Type
+              value: application/json
+              type: text
+          url:
+            raw: 'http://127.0.0.1:5000/api/admin/product/1'
+            protocol: http
+            host:
+              - '127'
+              - '0'
+              - '0'
+              - '1'
+            port: '5000'
+            path:
+              - api
+              - admin
+              - product
+              - '1'
+        response: []
+  - name: registeruser
+    request:
+      method: POST
+      header: []
+      body:
+        mode: raw
+        raw: "{\"username\": \"Anshika\",\r\n   \"email\": \"anshika@gmail.com\",\r\n   \"name\" : \"Anshika\",\r\n  \"password\" : \"anshika27\" }"
+        options:
+          raw:
+            language: json
+      url:
+        raw: 'http://127.0.0.1:5000/api/register'
+        protocol: http
+        host:
+          - '127'
+          - '0'
+          - '0'
+          - '1'
+        port: '5000'
+        path:
+          - api
+          - register
+    response: []
+  - name: loginuser
+    request:
+      method: POST
+      header:
+        - key: Content-Type
+          value: application/json
+          type: text
+      body:
+        mode: raw
+        raw: "{\r\n    \"username\": \"Harshit21\",\r\n    \"password\": \"harshit\"\r\n}"
+      url:
+        raw: 'http://127.0.0.1:5000/api/login'
+        protocol: http
+        host:
+          - '127'
+          - '0'
+          - '0'
+          - '1'
+        port: '5000'
+        path:
+          - api
+          - login
+    response: []

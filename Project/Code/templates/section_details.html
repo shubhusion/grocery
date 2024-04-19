@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Section Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Section Detail - {{ section['name'] }}</h1>
+        <ul>
+            {% for product in products %}
+            <li>{{ product['name'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

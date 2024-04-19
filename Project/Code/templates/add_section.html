@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %} Add New Category - Admin {% endblock %}
+
+{% block main %}
+
+<style>
+    /* Add custom CSS styles here */
+    .w-100.a {
+        background-image: url("/static/Add_Category.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .add-category-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .add-category-header {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .btn-primary {
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        cursor: pointer;
+    }
+
+    .back-link {
+        color: #007bff;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .error-message {
+        color: #dc3545;
+        font-size: 0.9rem;
+    }
+</style>
+<div class="w-100 a">
+    <div class="add-category-container">
+        <h1 class="add-category-header">Add New Category</h1>
+        <form method="post" action="{{ url_for('add_section') }}" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="section_name">Section Name</label>
+                <input type="text" class="form-control" id="section_name" name="section_name" required>
+                <div class="error-message" id="section_name_error"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Section</button>
+        </form>
+        <br>
+        <a href="{{ url_for('admin') }}" class="back-link">Go back to Home</a>
+    </div>
+</div>
+<script>
+    function validateForm() {
+        // Perform client-side form validation
+        var sectionName = document.getElementById("section_name").value;
+        var sectionNameError = document.getElementById("section_name_error");
+
+        if (sectionName.trim() === "") {
+            sectionNameError.innerHTML = "Section Name is required.";
+            return false;
+        } else {
+            sectionNameError.innerHTML = "";
+            return true;
+        }
+    }
+</script>
+
+{% endblock %}

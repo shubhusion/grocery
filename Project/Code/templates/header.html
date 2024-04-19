@@ -1,0 +1,143 @@
+<header>
+  <style>
+    /* Custom styles for the header */
+    header {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+    }
+
+    .navbar {
+      padding: 5px 20px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand img {
+      width: 120px;
+      height: 100px;
+    }
+
+    .navbar-nav {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    .nav-item {
+      margin-right: 15px;
+    }
+
+    .d-flex {
+      margin-right: 15px;
+    }
+
+    .login-btn,
+    .signup-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #007bff;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .login-btn:hover,
+    .signup-btn:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    .search-form select {
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    .shop-cart,
+    .sign-in {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .sign-in a {
+      margin-right: 10px;
+    }
+  </style>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+      <img src="/static/Freshpicks_Logo.png" width="100" height="100" class="d-inline-block align-top"
+        alt="Freshpicks Grocery Store">
+    </a>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-shopping-cart"></i> Shop by Category
+          </a>
+          <ul class="dropdown-menu">
+            {% for one in section %}
+            <li><a class="dropdown-item" href="/user?by=0&q={{ one.name }}">{{ one.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+
+      <form class="search-form" method="get" role="search" action="{{ url_for('view_sections') }}">
+        <select name="by" id="">
+          <option value="0">Search by Category</option>
+          <option value="1">Search by Product</option>
+        </select>
+        <input name="q" class="form-control me-2" type="search" placeholder="Search for products..."
+          aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      {% if not current_user.is_authenticated %}
+      <div class="sign-in">
+        <a href="/user/login" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <a href="/register" class="signup-btn">
+          <i class="fas fa-user-plus"></i> Sign Up
+        </a>
+      </div>
+      {% endif %}
+
+      {% if current_user.is_authenticated %}
+      <div class="shop-cart">
+        <a href="/user/cart/view">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <div class="Signin">
+          Welcome, {{ current_user.name }}
+          <a href="/logout">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </nav>

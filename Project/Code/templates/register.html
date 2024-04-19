@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %} Register {% endblock %}
+{% block cssfile %}
+<style>
+  section {
+    background-image: url(/static/veggie-meal-wooden-table-with-copy-space.jpg) !important;
+    /* Replace with the actual path to your image */
+    background-size: cover;
+    /* Scale the image to cover the entire background */
+    background-position: center;
+    /* Center the image horizontally and vertically */
+  }
+</style>
+{% endblock %}
+{% block main %}
+
+
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+
+
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight">
+          <br />
+          <span style="color: hsl(218, 81%, 95%); text-shadow: black;">Join us now and embark on a fresh grocery
+            shopping experience! </span>
+        </h1>
+
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <form method="post" action="{{ url_for('register') }}">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+
+
+              <div class="form-outline mb-4">
+                <input type="text" id="form3Example3" placeholder="Name" name="name" class="form-control" />
+                <label class="form-label" for="form3Example3"> </label>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="form3Example3" placeholder="Email address" name="email" class="form-control" />
+                <label class="form-label" for="form3Example3"></label>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input type="text" id="form3Example3" placeholder="Username" name="username" class="form-control" />
+                <label class="form-label" for="form3Example3"> </label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" id="form3Example4" placeholder="Password" name="password" class="form-control" />
+                <label class="form-label" for="form3Example4"></label>
+              </div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+              <a href="{{ url_for('user_login') }}"> Existing User </a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+{% endblock %}

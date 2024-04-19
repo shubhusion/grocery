@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Product - Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="date"] {
+            padding: 8px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .admin-dashboard-link {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .admin-dashboard-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Product</h1>
+    <form action="{{ url_for('update_product', id=prd.id) }}" method="post">
+        <div class="form-group">
+            <label for="product_name">Product Name:</label>
+            <input type="text" class="form-control" id="product_name" name="product_name" value="{{ prd.name }}"
+                required>
+        </div>
+        <!-- <div class="form-group">
+            <label for="manufacture_date">Manufacture Date:</label>
+            <input type="date" class="form-control" id="manufacture_date" name="manufacture_date"
+                value="{{ prd.manufacture_date }}">
+        </div>
+        <div class="form-group">
+            <label for="expiry_date">Expiry Date:</label>
+            <input type="date" class="form-control" id="expiry_date" name="expiry_date" value="{{ prd.expiry_date }}">
+        </div> -->
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" id="price" name="price" required value="{{ prd.price }}">
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="text" class="form-control" id="quantity" name="quantity" required value="{{ prd.quantity }}">
+        </div>
+        <label for="unit">unit</label>
+        <select name="unit" class="form-control">
+            <option>Kilogram (kg)</option>
+            <option>Liter (ltr)</option>
+            <option>Gram (g)</option>
+            <option>Milliliter (ml)</option>
+            <option>Dozen</option>
+            <option>Pack</option>
+        </select>
+        <!-- Add other fields as needed -->
+
+        <input type="submit" value="Update Product">
+    </form>
+    <a href="{{ url_for('admin') }}" class="admin-dashboard-link">Back to Admin Dashboard</a>
+</body>
+
+</html>

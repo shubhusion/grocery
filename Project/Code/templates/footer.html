@@ -1,0 +1,85 @@
+<footer class="page-footer shadow bg-light w-100">
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-md-4 mb-2">
+        <div class="d-flex flex-column align-items-center">
+          <a href="/" class="d-flex align-items-center p-0 text-dark">
+            <img alt="logo" src="/static/Freshpicks_Logo.png" class="footer-logo img-fluid"
+              style="max-height: 150px;" />
+          </a>
+          <p class="footer-logo-text text-center mt-2">
+            Freshpicks is your one-stop grocery store for fresh and organic produce, sourced directly from local
+            farmers.
+            Shop with us and contribute to a sustainable and healthy lifestyle.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex flex-column">
+          <h5 class="mb-4 font-weight-bold">Freshpicks</h5>
+          <ul class="list-unstyled">
+            <li class="my-2">
+              <a class="text-dark" href="/">Home</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark" href="/">About Us</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark" href="/">Contact</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark" href="/">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="d-flex flex-column">
+          <h5 class="mb-4 font-weight-bold">Customer Support</h5>
+          <ul class="list-unstyled">
+            <li class="my-2">
+              <a class="text-dark" href="/">Order Tracking</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark" href="/">Shipping & Delivery</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark" href="/">Return Policy</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark" href="/">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center py-3 bg-primary text-white">
+    <p class="mb-0">Stay connected with us:</p>
+    <ul class="list-inline mb-2">
+      <li class="list-inline-item">
+        <a href="#" class="text-white">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#" class="text-white">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#" class="text-white">
+          <i class="fas fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+    <small>&copy; Freshpicks, <span id="currentYear"></span>. All rights reserved.</small>
+
+  </div>
+</footer>
+<script>
+  // JavaScript to update the current year dynamically
+  const currentYearElement = document.getElementById("currentYear");
+  const currentYear = new Date().getFullYear();
+  currentYearElement.textContent = currentYear;
+</script>

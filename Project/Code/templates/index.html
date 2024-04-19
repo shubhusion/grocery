@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+{% block main %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    #hero {
+        background: url("/static/colorful-veggies-frame-with-copy-space.jpg") center center no-repeat;
+        background-size: cover;
+        height: 400px;
+        /* Adjust the height as needed */
+        display: flex;
+        align-items: center;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        color: #333;
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: #666;
+    }
+
+    .hero .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+        font-size: 18px;
+    }
+
+    .product-showcase {
+        background-color: #fff;
+        padding: 40px 0;
+        margin-bottom: 40px;
+    }
+
+    .product-card {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .product-card .card-body {
+        text-align: center;
+        /* Center align the content in the card body */
+    }
+
+    .special-deals {
+        background-color: #f5f5f5;
+        padding: 40px 0;
+    }
+
+    .deal-card {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .deal-card img {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .testimonials {
+        padding: 40px 0;
+        margin-bottom: 40px;
+    }
+
+    .testimonial {
+        margin-bottom: 20px;
+    }
+
+    /* Add more custom styles as needed */
+</style>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="container text-center">
+        <h1>Welcome to Freshpicks Grocery Store</h1>
+        <p>Discover fresh and high-quality products for your kitchen!</p>
+        <a href="/user" class="btn btn-primary">Explore Now</a>
+    </div>
+</section>
+
+
+
+<!-- Product Showcase Section -->
+<section id="product-showcase" class="product-showcase py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div class="row">
+            <!-- Add styled product cards with images here -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 product-card">
+                    <img src="/static/groceries-1343141.jpg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Product 1 description goes here.</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 product-card">
+                    <img src="/static/groceries-1343141.jpg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Product 1 description goes here.</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 product-card">
+                    <img src="/static/groceries-1343141.jpg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Product 1 description goes here.</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more product cards here -->
+        </div>
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-secondary">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- Special Deals Section -->
+<section id="special-deals" class="special-deals py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Special Deals and Offers</h2>
+        <div class="row">
+            <!-- Add styled deal cards with images here -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 deal-card">
+                    <img src="/static/4902560.jpg" class="card-img-top" alt="Deal 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Deal 1</h5>
+                        <p class="card-text">Deal 1 description goes here.</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 deal-card">
+                    <img src="/static/4902560.jpg" class="card-img-top" alt="Deal 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Deal 1</h5>
+                        <p class="card-text">Deal 1 description goes here.</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 deal-card">
+                    <img src="/static/4902560.jpg" class="card-img-top" alt="Deal 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Deal 1</h5>
+                        <p class="card-text">Deal 1 description goes here.</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more deal cards here -->
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">What Our Customers Say</h2>
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="testimonial text-center">
+                    <div class="testimonial-image">
+                        <img src="/static/pexels-sam-lion-5709271.jpg" alt="Customer 1" class="img-fluid rounded-circle"
+                            style="height: 300px; width: 300px;">
+                    </div>
+                    <div class="testimonial-content mt-3">
+                        <p class="quote">"I love shopping at Awesome Grocery Store! The selection of fresh fruits and
+                            vegetables is impressive, and the staff is always friendly and helpful."</p>
+                        <p class="customer-name">John Doe</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more testimonials here -->
+            <div class="col-md-4 mb-4">
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="/static/pexels-rfstudio-4177755.jpg" alt="Customer 2" class="img-fluid rounded-circle"
+                            style="height: 300px; width: 300px;">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="quote">"The quality of the products at Awesome Grocery Store is top-notch. I always
+                            find what I need, and the prices are reasonable too!"</p>
+                        <p class="customer-name">Jane Smith</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="/static/pexels-los-muertos-crew-8446836.jpg" alt="Customer 3"
+                            class="img-fluid rounded-circle" style="height: 300px; width: 300px;">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="quote">"I highly recommend Awesome Grocery Store to anyone looking for fresh produce
+                            and a wide variety of grocery items. It's my go-to store for shopping!"</p>
+                        <p class="customer-name">Michael Johnson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">About Awesome Grocery Store</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et mi eget arcu fringilla dictum. Vestibulum
+            faucibus eros at luctus fermentum.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Contact Form -->
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <!-- Contact Information -->
+                <h4>Contact Information</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State, ZIP</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@example.com</p>
+                <p><i class="far fa-clock"></i> Monday to Saturday: 8:00 AM - 8:00 PM</p>
+                <p>Feel free to contact us with any questions, feedback, or inquiries you may have. Our customer support
+                    team is ready to assist you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Subscribe Section -->
+<section class="subscribe py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Subscribe to Our Newsletter</h2>
+        <p class="text-center">Subscribe to our newsletter and stay up-to-date with the latest offers, promotions, and
+            news from Awesome Grocery Store.</p>
+        <form action="#" method="post" class="subscribe-form mt-4">
+            <div class="form-row justify-content-center">
+                <div class="col-md-6 mb-2">
+                    <input type="email" class="form-control" name="email" placeholder="Enter your email address"
+                        required>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+<script>
+    $(document).ready(function () {
+        $("a[href^='#']").on('click', function (event) {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800);
+        });
+    });
+</script>

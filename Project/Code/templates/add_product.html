@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %} Add New Product - Admin {% endblock %}
+
+{% block main %}
+
+<style>
+    /* Add custom CSS styles here */
+
+    .add-product-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+    }
+
+    select.form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .go-back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Enhancements */
+    .add-product-container h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-control {
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        font-size: 16px;
+    }
+
+    .go-back-link {
+        margin-top: 30px;
+    }
+
+    /* Adjust the position of the form to prevent overlapping with the footer */
+    @media (max-height: 600px) {
+        .add-product-container {
+            margin-bottom: 80px;
+        }
+    }
+</style>
+
+<div class="add-product-container">
+    <h1>Add New Product</h1>
+    <form method="post" action="{{ url_for('add_product') }}">
+        <div class="form-group">
+            <label for="section_name">Product Name</label>
+            <input type="text" class="form-control" id="section_name" name="product_name" required>
+
+            <!-- <label for="section_name">Manufacture Date</label>
+            <input type="date" class="form-control" id="section_name" name="manufacture_date">
+
+            <label for="section_name">Expiry Date</label>
+            <input type="date" class="form-control" id="section_name" name="expiry_date"> -->
+
+            <label for="section_name">Price Per Unit</label>
+            <input type="text" class="form-control" id="section_name" name="price" required>
+
+            <label for="unit">unit</label>
+            <select name="unit" class="form-control">
+                <option>Kilogram (kg)</option>
+                <option>Liter (ltr)</option>
+                <option>Gram (g)</option>
+                <option>Milliliter (ml)</option>
+                <option>Dozen</option>
+                <option>Pack</option>
+            </select>
+
+
+            <label for="section_name">Quantity</label>
+            <input type="text" class="form-control" id="section_name" name="quantity" required>
+        </div>
+        <div class="form-group">
+            <label for="section_id">Select Section</label>
+            <select name="section_id" class="form-control">
+                {% for one in secs %}
+                <option value="{{ one.id }}">{{ one.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </div>
+    </form>
+    <div class="go-back-link">
+        <a href="{{ url_for('admin') }}">Go back to Admin Dashboard</a>
+    </div>
+</div>
+
+{% endblock %}
