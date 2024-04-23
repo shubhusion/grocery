@@ -8,21 +8,21 @@ The Grocery Store App provides a user-friendly interface for customers and Store
 
 ### Customer Features:
 
-- View available grocery items in the store.
-- Add grocery items to their shopping cart.
-- Make changes to the items in their shopping cart (e.g., update quantities).
-- Proceed to checkout to complete their purchase.
+👀 View available grocery items in the store.  
+🛒 Add grocery items to their shopping cart.  
+🛍️ Make changes to the items in their shopping cart (e.g., update quantities).  
+💳 Proceed to checkout to complete their purchase.
 
 ### Store Manager Features:
 
-- Create new sections in the grocery store app.
-- Remove existing sections from the grocery store app.
-- Update the information of sections in the grocery store app.
-- Delete sections from the grocery store app.
-- Create new products and associate them with specific sections.
-- Remove existing products from the grocery store app.
-- Update the information of products in the grocery store app.
-- Delete products from the grocery store app.
+🏢 Create new sections in the grocery store app.  
+🗑️ Remove existing sections from the grocery store app.  
+📝 Update the information of sections in the grocery store app.  
+❌ Delete sections from the grocery store app.  
+➕ Create new products and associate them with specific sections.  
+🔖 Remove existing products from the grocery store app.  
+🔧 Update the information of products in the grocery store app.  
+🗑️ Delete products from the grocery store app.
 
 ## Technology Stack
 
