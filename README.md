@@ -6,14 +6,14 @@ Welcome to the Grocery Store App! This is a modern web application that allows u
 
 The Grocery Store App provides a user-friendly interface for customers and Store Managers.
 
-### Customer Features:
+### Customer Features
 
 👀 View available grocery items in the store.  
 🛒 Add grocery items to their shopping cart.  
 🛍️ Make changes to the items in their shopping cart (e.g., update quantities).  
 💳 Proceed to checkout to complete their purchase.
 
-### Store Manager Features:
+### Store Manager Features
 
 🏢 Create new sections in the grocery store app.  
 🗑️ Remove existing sections from the grocery store app.  
@@ -44,55 +44,37 @@ Before running the Grocery Store App, ensure you have the following prerequisite
 ### Without Docker
 
 1. Clone the repository:
-   ```
-   git clone <repository_url>
-   ```
+   ```git clone <repository_url>```
 
 2. Navigate to the project directory:
-   ```
-   cd Code
-   ```
+   ```cd Code```
 
 3. Create and activate a virtual environment (optional but recommended):
-   ```
-   python -m venv venv
-   source venv/bin/activate   # For Linux/Mac
-   venv\Scripts\activate      # For Windows
-   ```
+   ```python -m venv venv``` # Command for creating virtual environment
+   ```source venv/bin/activate```   # For Linux/Mac
+   ```venv\Scripts\activate```     # For Windows
 
 4. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+   ```pip install -r requirements.txt```
 
 5. Start the Flask development server:
-   ```
-   python app1.py
-   ```
+   ```python app.py```
 
 6. Open your web browser and visit `http://localhost:5000` to access the Grocery Store App.
 
 ### With Docker
 
 1. Clone the repository:
-   ```
-   git clone <repository_url>
-   ```
+   ```git clone <repository_url>```
 
 2. Navigate to the project directory:
-   ```
-   cd Code
-   ```
+   ```cd Code```
 
 3. Build the Docker image:
-   ```
-   docker build -t grocery-store-app .
-   ```
+   ```docker build -t grocery-store-app .```
 
 4. Once the image is built successfully, you can run the Docker container:
-   ```
-   docker run -p 5000:5000 grocery-store-app
-   ```
+   ```docker run -p 5000:5000 grocery-store-app```
 
    This command will start the container, and the app will be accessible at `http://localhost:5000` in your web browser.
 
